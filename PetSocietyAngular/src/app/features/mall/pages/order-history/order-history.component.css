@@ -1,0 +1,74 @@
+/* 1. 定義主題色彩變數 */
+:host {
+  --color-primary-light: #F2EBE5;
+  /* 淺奶茶色 */
+  --color-text-dark: #5E5344;
+  /* 深咖啡文字 */
+  --color-btn: #D8C3A5;
+  /* 按鈕奶茶色 */
+  --color-btn-hover: #C7B29A;
+  /* 按鈕深色 */
+}
+
+/* 2. 美化 Accordion */
+
+/* 標題列 (沒展開時)：乾淨的白色背景 */
+:host ::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link {
+  background-color: #fff !important;
+  color: var(--color-text-dark) !important;
+  border: 1px solid #f0f0f0 !important;
+  /* 很淡的邊框 */
+  border-left: 5px solid transparent !important;
+  /* 預留左邊框給 hover 用 */
+  border-radius: 12px !important;
+  /* 圓角 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+  /* 極淡的陰影 */
+  transition: all 0.3s ease;
+  padding: 1.5rem;
+}
+
+/* 滑鼠移過去：左邊亮起奶茶色 */
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled):hover .p-accordion-header-link {
+  background-color: #fafafa !important;
+  border-left-color: var(--color-btn) !important;
+  /* 左邊亮燈！ */
+  transform: translateY(-2px);
+  /* 微微浮起 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 展開時 (Active)：變成淺奶茶色背景，區分重點 */
+:host ::ng-deep .p-accordion .p-accordion-header:not(.p-disabled).p-highlight .p-accordion-header-link {
+  background-color: var(--color-primary-light) !important;
+  border-color: var(--color-primary-light) !important;
+  color: var(--color-text-dark) !important;
+  border-radius: 12px 12px 0 0 !important;
+  /* 上面圓角，下面直角接內容 */
+}
+
+/* 內容區塊：加上邊框跟陰影，像一張收據 */
+:host ::ng-deep .p-accordion .p-accordion-content {
+  background-color: #fff !important;
+  border: 1px solid var(--color-primary-light) !important;
+  border-top: none !important;
+  /* 這樣才會跟標題連在一起 */
+  border-radius: 0 0 12px 12px !important;
+  /* 下面圓角 */
+  padding: 1.5rem;
+}
+
+/* 3. 調整 Accordion 每一項之間的間距 */
+:host ::ng-deep .p-accordion p-accordion-tab {
+  margin-bottom: 1.5rem;
+  /* 每一張訂單分開一點 */
+  display: block;
+}
+
+/* 4. 配送資訊卡片優化 */
+.shipping-card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  border-left: 4px solid var(--color-btn);
+  /* 左邊加個裝飾線 */
+}
